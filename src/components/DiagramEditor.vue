@@ -7,11 +7,15 @@
 
 <script>
 import Vue from 'vue'
-import { produce } from 'immer'
-import { DiagramMaker, ConnectorPlacement, VisibleConnectorTypes } from 'diagram-maker'
 import 'diagram-maker/dist/diagramMaker.css'
+
+import { produce } from 'immer'
+import { DiagramMaker, ConnectorPlacement } from 'diagram-maker'
 import Node from './Node.vue'
 import Edge from './Edge.vue'
+
+import InitialData from '../diagram/data.js'
+import NodeConfig from '../diagram/node-config.js'
 
 export default {
   name: 'diagramMaker',
@@ -38,12 +42,8 @@ export default {
       return state
     },
     createEdge (edge, container) {
-      console.log(container)
-      console.log('esto' + container.innerHTML + '|')
       if (container.innerHTML === '') {
-        console.log('Entra 2')
         var NodeClass = Vue.extend(Edge)
-        console.log(this.diagram)
         var instance = new NodeClass({
           propsData: {
             dispatch: (event) => this.diagram.api.dispatch(event),
@@ -55,16 +55,7 @@ export default {
       }
     },
     createNode (node, container) {
-      console.log(node)
-      /*
-      return new Vue({
-        components: { Node },
-        el: container,
-        render (h) { return h(Node) }
-      }).$refs.rectangleNode
-      */
       var NodeClass = Vue.extend(Node)
-      console.log(this.diagram)
       var instance = new NodeClass({
         propsData: {
           counterValue: 3,
@@ -72,18 +63,6 @@ export default {
           node
         }
       })
-      /*
-      instance.$on('dummyEvent', e => {
-        console.log('dummy get fired', e)
-        this.diagram.api.dispatch({
-          type: 'CONSUMER_DATA_CHANGED',
-          payload: {
-            nodeId: myNodeId,
-            consumerData: { hola: 'hello' }
-          }
-        })
-      })
-      */
       instance.$mount() // pass nothing
       container.innerHTML = ''
       container.appendChild(instance.$el)
@@ -99,61 +78,17 @@ export default {
         },
         renderCallbacks: {
           node: (node, container) => {
-            console.log('is called')
             return this.createNode(node, container)
           },
           edge: (edge, container) => {
-            console.log(container)
             return this.createEdge(edge, container)
           }
         },
-        nodeTypeConfig: {
-          'node-start': {
-            size: { width: 150, height: 50 },
-            visibleConnectorTypes: VisibleConnectorTypes.OUTPUT_ONLY
-          },
-          'node-end': {
-            size: { width: 150, height: 50 },
-            visibleConnectorTypes: VisibleConnectorTypes.INPUT_ONLY
-          }
-        }
+        nodeTypeConfig: NodeConfig
       },
       {
         consumerRootReducer: this.myConsumerDataReducer,
-        initialData: {
-          nodes: {
-            start: {
-              id: 'start',
-              typeId: 'node-start',
-              diagramMakerData: {
-                position: { x: 200, y: 150 },
-                size: { width: 100, height: 50 }
-              },
-              consumerData: {
-                text: 'adios'
-              }
-            },
-            end: {
-              id: 'end',
-              typeId: 'node-end',
-              diagramMakerData: {
-                position: { x: 400, y: 150 },
-                size: { width: 100, height: 50 }
-              },
-              consumerData: {
-                text: 'adios'
-              }
-            }
-          },
-          edges: {
-            edge1: {
-              id: 'edge1',
-              src: 'start',
-              dest: 'end',
-              diagramMakerData: { }
-            }
-          }
-        }
+        initialData: InitialData
       }
     )
   },
@@ -163,16 +98,15 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .dm-dots {
     text-align: left;
 }
 #main {
   height: 100%;
   width: 100%;
-  top: 120px;
+  top: 0;
   left: 0;
-  position: absolute;
 }
 #diagram-container {
   height: 100%;
@@ -180,8 +114,76 @@ export default {
   position: relative;
   overflow: hidden;
 }
-#main /deep/ .dm-node {
-  border: 1px solid black !important;
+
+.dm-node {
+  border: 1px solid #e9ecef !important;
   background-color: white;
+  border-radius: 6px;
 }
+
+.dm-node-wrap {
+    padding: 10px;
+}
+
+.dm-canvas {
+    background-color: #f1f5f8;
+}
+.dm-dots pattern path {
+    fill: #dce7ef;
+}
+
+.dm-connector {
+    border-radius: 100%;
+    height: 28px;
+    width: 28px;
+    top: 0;
+    left: 0;
+    margin-left: -15px;
+    margin-top: -15px;
+    position: absolute;
+}
+
+.dm-connector .dm-handle {
+    border: 2px solid #409EFF !important;
+    background: white;
+    border-radius: 100%;
+    box-sizing: border-box;
+    height: 11px;
+    width: 11px;
+    margin: 9px;
+    transition: background-color .4s ease,border .4s ease,transform .25s ease;
+}
+
+.dm-edge .dm-path.dm-path-inner {
+    stroke: #409EFF;
+}
+.dm-edge:hover .dm-path.dm-path-inner {
+    stroke: #409EFF;
+}
+
+.text-head {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.text-little {
+    font-size: 11px;
+    text-transform: capitalize;
+    color: #909399;
+}
+
+.dm-node-icon {
+    display: inline-block;
+    vertical-align:middle;
+    font-size: 24px;
+    color: #abb5c5;
+}
+
+.dm-node-text {
+    display: inline-block;
+    vertical-align:middle;
+    margin-left: 10px;
+}
+
 </style>

@@ -1,7 +1,12 @@
 <template>
-    <div class="rectangle" ref="rectangleNode" >
-        <p>{{ text }} {{ counter }} </p>
-        <button v-on:click="count" data-event-target="true" data-draggable="true">Button</button>
+    <div class="dm-node-wrap" ref="rectangleNode" >
+      <div class="dm-node-icon">
+        <span><i class="el-icon-help"></i></span>
+      </div>
+      <div class="dm-node-text">
+        <div class="text-head">{{ text }}</div>
+        <div class="text-little">Description</div>
+      </div>
     </div>
 </template>
 
@@ -35,4 +40,5 @@ export default {
 </script>
 
 <style>
+
 </style>
