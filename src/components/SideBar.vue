@@ -1,10 +1,10 @@
 <template>
     <el-menu
-      default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
+      default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span>Navigator One</span>
+          <span>Components</span>
         </template>
         <el-menu-item-group title="Group One">
           <el-menu-item index="1-1">item one</el-menu-item>
@@ -21,14 +21,6 @@
       <el-menu-item index="2">
         <i class="el-icon-menu"></i>
         <span>Navigator Two</span>
-      </el-menu-item>
-      <el-menu-item index="3" disabled>
-        <i class="el-icon-document"></i>
-        <span>Navigator Three</span>
-      </el-menu-item>
-      <el-menu-item index="4">
-        <i class="el-icon-setting"></i>
-        <span>Navigator Four</span>
       </el-menu-item>
     </el-menu>
 </template>

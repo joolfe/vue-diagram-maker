@@ -8,5 +8,8 @@ export default {
   'node-end': {
     size: { width: 150, height: 50 },
     visibleConnectorTypes: VisibleConnectorTypes.INPUT_ONLY
+  },
+  'node-adapter': {
+    size: { width: 150, height: 50 }
   }
 }

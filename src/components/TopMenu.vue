@@ -1,7 +1,7 @@
 <template>
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
         <el-menu-item>
-          Processing Center
+          <i class="el-icon-orange"></i> Auth Flow
         </el-menu-item>
         <el-submenu index="1">
             <template slot="title">Diagram</template>

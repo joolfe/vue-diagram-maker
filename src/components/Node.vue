@@ -1,44 +1,34 @@
 <template>
-    <div class="dm-node-wrap" ref="rectangleNode" >
-      <div class="dm-node-icon">
-        <span><i class="el-icon-help"></i></span>
-      </div>
-      <div class="dm-node-text">
-        <div class="text-head">{{ text }}</div>
-        <div class="text-little">Description</div>
-      </div>
+    <div class="node-adapter" ref="adapter-node">
+      <InnerNode :adapter_id="adapter_id" :adapter_name="adapter_name"></InnerNode>
     </div>
 </template>
 
 <script>
+import InnerNode from './InnerNode.vue'
+
 export default {
-  props: ['counterValue', 'dispatch', 'node'],
+  components: { InnerNode },
+  props: ['node'],
   data () {
     return {
-      val: '',
-      counter: this.counterValue,
-      text: this.node.consumerData.text
-    }
-  },
-  computed: { },
-  methods: {
-    count: function (event) {
-      console.log(this.node.id)
-      console.log(this.dispatch)
-      this.counter = this.counter + 1
-      this.dispatch({
-        type: 'CONSUMER_DATA_CHANGED',
-        payload: {
-          nodeId: this.node.id,
-          consumerData: { text: 'hello' }
-        }
-      })
-      // this.$emit('dummyEvent', { data: 'dummyData' })
+      adapter_id: this.node.consumerData.adapter_id,
+      adapter_name: this.node.consumerData.adapter_name
     }
   }
 }
 </script>
 
 <style>
+.node-adapter {
+  border: 1px solid #e9ecef !important;
+  background-color: white;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 2px 1px 0px rgba(224, 224, 224, 0.47);
+  box-shadow: 0px 2px 1px 0px rgba(224, 224, 224, 0.47);
+}
 
+.dm-node .dm-content {
+  z-index: 0;
+}
 </style>

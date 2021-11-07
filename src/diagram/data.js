@@ -8,7 +8,8 @@ export default {
         size: { width: 150, height: 50 }
       },
       consumerData: {
-        text: 'Hola'
+        adapter_id: 'OTP',
+        adapter_name: 'OTP adapter'
       }
     },
     end: {
@@ -19,7 +20,8 @@ export default {
         size: { width: 150, height: 50 }
       },
       consumerData: {
-        text: 'adios'
+        adapter_id: 'Password',
+        adapter_name: 'Security number'
       }
     }
   },

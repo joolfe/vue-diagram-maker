@@ -10,9 +10,10 @@ import Vue from 'vue'
 import 'diagram-maker/dist/diagramMaker.css'
 
 import { produce } from 'immer'
-import { DiagramMaker, ConnectorPlacement } from 'diagram-maker'
+import { DiagramMaker, ConnectorPlacement, PositionAnchor } from 'diagram-maker'
 import Node from './Node.vue'
 import Edge from './Edge.vue'
+import LibraryPanel from './LibraryPanel.vue'
 
 import InitialData from '../diagram/data.js'
 import NodeConfig from '../diagram/node-config.js'
@@ -66,6 +67,20 @@ export default {
       instance.$mount() // pass nothing
       container.innerHTML = ''
       container.appendChild(instance.$el)
+    },
+    createLibraryPanel (panel, state, container) {
+      console.log('entra')
+      if (container.innerHTML !== '') {
+        return
+      }
+      var LibraryPanelClass = Vue.extend(LibraryPanel)
+      var instance = new LibraryPanelClass({
+        propsData: {
+          dispatch: (event) => this.diagram.api.dispatch(event)
+        }
+      })
+      instance.$mount() // pass nothing
+      container.appendChild(instance.$el)
     }
   },
   mounted () {
@@ -77,18 +92,42 @@ export default {
           showArrowHead: true
         },
         renderCallbacks: {
+          destroy: () => undefined,
           node: (node, container) => {
             return this.createNode(node, container)
           },
           edge: (edge, container) => {
-            return this.createEdge(edge, container)
+            this.createEdge(edge, container)
+          },
+          potentialNode: (node, container) => {
+            console.log('Entra en potential node')
+            return this.createNode(node, container)
+          },
+          panels: {
+            library: (panel, state, container) => {
+              console.log('hola aqui')
+              return this.createLibraryPanel(panel, state, container)
+            },
+            tools: (panel, state, container) => {
+              console.log('tools')
+            }
           }
         },
         nodeTypeConfig: NodeConfig
       },
       {
         consumerRootReducer: this.myConsumerDataReducer,
-        initialData: InitialData
+        initialData: {
+          ...InitialData,
+          panels: {
+            library: {
+              id: 'library',
+              position: { x: 20, y: 20 },
+              size: { width: 250, height: 600 },
+              positionAnchor: PositionAnchor.TOP_RIGHT
+            }
+          }
+        }
       }
     )
   },
@@ -115,19 +154,10 @@ export default {
   overflow: hidden;
 }
 
-.dm-node {
-  border: 1px solid #e9ecef !important;
-  background-color: white;
-  border-radius: 6px;
-}
-
-.dm-node-wrap {
-    padding: 10px;
-}
-
 .dm-canvas {
     background-color: #f1f5f8;
 }
+
 .dm-dots pattern path {
     fill: #dce7ef;
 }
@@ -157,33 +187,8 @@ export default {
 .dm-edge .dm-path.dm-path-inner {
     stroke: #409EFF;
 }
+
 .dm-edge:hover .dm-path.dm-path-inner {
     stroke: #409EFF;
 }
-
-.text-head {
-    font-size: 13px;
-    font-weight: bold;
-    text-transform: capitalize;
-}
-
-.text-little {
-    font-size: 11px;
-    text-transform: capitalize;
-    color: #909399;
-}
-
-.dm-node-icon {
-    display: inline-block;
-    vertical-align:middle;
-    font-size: 24px;
-    color: #abb5c5;
-}
-
-.dm-node-text {
-    display: inline-block;
-    vertical-align:middle;
-    margin-left: 10px;
-}
-
 </style>

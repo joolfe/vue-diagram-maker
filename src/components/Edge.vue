@@ -1,5 +1,7 @@
 <template>
-    <div class="edgeBadge" ref="tagEdge">{{ val }}</div>
+    <div class="dm-edge-badge" ref="tagEdge">
+      <i class="el-icon-check"></i>
+    </div>
 </template>
 
 <script>
@@ -16,10 +18,11 @@ export default {
 </script>
 
 <style>
-.edgeBadge {
-    background-color: white;
-    border: 1px solid grey;
-    padding: 5px;
-    border-radius: 3px;
+.dm-edge-badge {
+  background-color: white;
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  font-size: 12px;
 }
 </style>
