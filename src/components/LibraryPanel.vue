@@ -1,7 +1,11 @@
 <template>
     <div data-event-target="true" data-dropzone="true">
+        <h4>Nodes</h4>
+        <el-input placeholder="Filter..." prefix-icon="el-icon-search" v-model="filter"></el-input>
         <div class="panel-section">Adapters</div>
-        <NodeToCreate></NodeToCreate>
+        <NodeToCreate v-for="adapter in adapter_list" :key="adapter.adapter_id"
+        :adapter_id="adapter.adapter_id" :adapter_name="adapter.adapter_name">
+        </NodeToCreate>
         <div class="panel-section">Selectors</div>
     </div>
 </template>
@@ -11,7 +15,17 @@ import NodeToCreate from './NodeToCreate.vue'
 export default {
   components: { NodeToCreate },
   data () {
-    return {}
+    return {
+      filter: null,
+      adapter_list: [{
+        adapter_id: 'Password',
+        adapter_name: 'Password Adapter'
+      },
+      {
+        adapter_id: 'OTP',
+        adapter_name: 'OTP Adapter'
+      }]
+    }
   },
   methods: {}
 }
@@ -31,8 +45,5 @@ export default {
 }
 .dm-panel .dm-content {
     padding: 0px 20px;
-}
-. {
-  height: auto !important;
 }
 </style>

@@ -10,11 +10,9 @@ import InnerNode from './InnerNode.vue'
 
 export default {
   components: { InnerNode },
+  props: ['adapter_id', 'adapter_name'],
   data () {
-    return {
-      adapter_id: 'Adapter Id',
-      adapter_name: 'Adapter Name'
-    }
+    return {}
   }
 }
 </script>
