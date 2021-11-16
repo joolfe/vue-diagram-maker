@@ -1,12 +1,15 @@
 <template>
     <div data-event-target="true" data-dropzone="true">
         <h4>Nodes</h4>
-        <el-input placeholder="Filter..." prefix-icon="el-icon-search" v-model="filter"></el-input>
-        <div class="panel-section">Adapters</div>
-        <NodeToCreate v-for="adapter in adapter_list" :key="adapter.adapter_id"
-        :adapter_id="adapter.adapter_id" :adapter_name="adapter.adapter_name">
-        </NodeToCreate>
-        <div class="panel-section">Selectors</div>
+        <el-divider></el-divider>
+        <div class="panel-inset">
+          <el-input placeholder="Filter..." prefix-icon="el-icon-search" v-model="filter"></el-input>
+          <div class="panel-section">Adapters</div>
+          <NodeToCreate v-for="adapter in adapter_list" :key="adapter.adapter_id"
+          :adapter_id="adapter.adapter_id" :adapter_name="adapter.adapter_name">
+          </NodeToCreate>
+          <div class="panel-section">Selectors</div>
+        </div>
     </div>
 </template>
 
@@ -44,6 +47,17 @@ export default {
   padding: 20px 0px 13px 0px;
 }
 .dm-panel .dm-content {
-    padding: 0px 20px;
+  padding: 0px;
+}
+.dm-panel .dm-content h4 {
+  margin: 0px;
+  padding: 10px 20px 0px;
+  color: #324a5e;
+}
+.dm-panel .dm-content .el-divider.el-divider--horizontal {
+  margin: 10px 0px;
+}
+.panel-inset {
+ padding: 10px 20px;
 }
 </style>
