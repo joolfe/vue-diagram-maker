@@ -122,7 +122,7 @@ export default {
           panels: {
             library: {
               id: 'library',
-              position: { x: 20, y: 20 },
+              position: { x: 0, y: 0 },
               size: { width: 250, height: 600 },
               positionAnchor: PositionAnchor.TOP_RIGHT
             }

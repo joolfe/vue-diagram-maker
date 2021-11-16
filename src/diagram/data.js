@@ -4,8 +4,8 @@ export default {
       id: 'start',
       typeId: 'node-start',
       diagramMakerData: {
-        position: { x: 100, y: 150 },
-        size: { width: 150, height: 50 }
+        position: { x: 100, y: 100 },
+        size: { width: 165, height: 55 }
       },
       consumerData: {
         adapter_id: 'OTP',
@@ -16,8 +16,8 @@ export default {
       id: 'end',
       typeId: 'node-end',
       diagramMakerData: {
-        position: { x: 400, y: 150 },
-        size: { width: 150, height: 50 }
+        position: { x: 400, y: 100 },
+        size: { width: 165, height: 55 }
       },
       consumerData: {
         adapter_id: 'Password',

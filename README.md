@@ -30,10 +30,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## TODO
 
+- Css style, we cannot see clear everything add more boerders and thing
 - Potential node should have the same properties as the one get from panel.
-- Panel css fix everything.
-- Edges are not in the middle of the adapter
 - Edges badged should have border be in the middle.
+- Menu should not select when click in options.
 - Create logo and put in the menu bar.
 - Create end nodes
 - Create Start Node.

@@ -25,4 +25,8 @@ export default {
   height: 15px;
   font-size: 12px;
 }
+
+.dm-edge .dm-path.dm-path-inner {
+  stroke-width: 1.7px;
+}
 </style>

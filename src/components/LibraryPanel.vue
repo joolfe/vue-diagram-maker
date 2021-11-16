@@ -18,10 +18,18 @@ export default {
 </script>
 
 <style>
+.dm-panel {
+  border-top: 0px;
+  box-shadow: none;
+  border-left: 1px solid #e6e6e6;
+}
 .panel-section {
   color: #909399;
   font-size: 13px;
   font-weight: bold;
   padding: 20px 0px 13px 0px;
+}
+.dm-panel .dm-content {
+    padding: 0px 20px;
 }
 </style>

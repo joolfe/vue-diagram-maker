@@ -41,7 +41,7 @@ export default {
 }
 
 .text-head {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
     text-transform: capitalize;
 }

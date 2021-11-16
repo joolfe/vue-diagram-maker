@@ -1,13 +1,10 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header>
+      <el-header height="61">
         <TopMenu></TopMenu>
       </el-header>
         <el-container>
-        <el-aside width="200px">
-          <SideBar></SideBar>
-        </el-aside>
         <el-main>
           <DiagramEditor></DiagramEditor>
         </el-main>
@@ -18,12 +15,11 @@
 
 <script>
 import TopMenu from './components/TopMenu.vue'
-import SideBar from './components/SideBar.vue'
 import DiagramEditor from './components/DiagramEditor.vue'
 
 export default {
   name: 'app',
-  components: { TopMenu, DiagramEditor, SideBar }
+  components: { TopMenu, DiagramEditor }
 }
 </script>
 
@@ -47,5 +43,9 @@ body, html {
 
 .el-main {
   padding: 0px !important;
+}
+
+.el-header {
+  border-bottom: 1px solid #e6e6e6;
 }
 </style>

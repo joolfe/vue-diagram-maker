@@ -24,8 +24,6 @@ export default {
   border: 1px solid #e9ecef !important;
   background-color: white;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 2px 1px 0px rgba(224, 224, 224, 0.47);
-  box-shadow: 0px 2px 1px 0px rgba(224, 224, 224, 0.47);
 }
 
 .dm-node .dm-content {
