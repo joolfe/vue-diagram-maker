@@ -25,7 +25,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
@@ -47,5 +47,13 @@ body, html {
 
 .el-header {
   border-bottom: 1px solid #e6e6e6;
+}
+
+.san-red {
+ color: #eb272e;
+}
+
+.san-dark {
+  color: #324a5e;
 }
 </style>

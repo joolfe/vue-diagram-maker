@@ -21,7 +21,7 @@ export default {
 
 <style>
 .node-adapter {
-  border: 1px solid #e9ecef !important;
+  border: 1px solid #e6e6e6 !important;
   background-color: white;
   border-radius: 6px;
 }
