@@ -32,4 +32,7 @@ export default {
 .dm-panel .dm-content {
     padding: 0px 20px;
 }
+. {
+  height: auto !important;
+}
 </style>
