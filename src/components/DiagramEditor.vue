@@ -133,6 +133,12 @@ export default {
   },
   beforeUnmount () {
     this.diagram.destroy()
+  },
+  created () {
+    window.addEventListener('resize', this.handleResize)
+  },
+  destroyed () {
+    window.removeEventListener('resize', this.handleResize)
   }
 }
 </script>
