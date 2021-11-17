@@ -44,7 +44,7 @@ export default {
   color: #909399;
   font-size: 13px;
   font-weight: bold;
-  padding: 20px 0px 13px 0px;
+  padding: 20px 0px 0px;
 }
 .dm-panel .dm-content {
   padding: 0px;
@@ -59,5 +59,8 @@ export default {
 }
 .panel-inset {
  padding: 10px 20px;
+}
+.panel-inset .node-adapter {
+  margin-top: 10px;
 }
 </style>

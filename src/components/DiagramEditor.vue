@@ -12,6 +12,7 @@ import 'diagram-maker/dist/diagramMaker.css'
 import { produce } from 'immer'
 import { DiagramMaker, ConnectorPlacement, PositionAnchor } from 'diagram-maker'
 import Node from './Node.vue'
+import NodeEnd from './NodeEnd.vue'
 import Edge from './Edge.vue'
 import LibraryPanel from './LibraryPanel.vue'
 
@@ -57,9 +58,11 @@ export default {
     },
     createNode (node, container) {
       var NodeClass = Vue.extend(Node)
+      if (NodeEnd.isEndNode(node)) {
+        NodeClass = Vue.extend(NodeEnd)
+      }
       var instance = new NodeClass({
         propsData: {
-          counterValue: 3,
           dispatch: (event) => this.diagram.api.dispatch(event),
           node
         }
