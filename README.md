@@ -29,14 +29,11 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## TODO
-
-- Css style, we cannot see clear everything add more boerders and thing
+- Success and fail node should be center vertically better please and maybe a little font size.
+- try a simple verison for the logo, just logo and options after that.
 - Potential node should have the same properties as the one get from panel.
 - Edges badged should have border be in the middle.
 - Menu should not select when click in options.
-- Create logo and put in the menu bar.
-- Create end nodes
-- Create Start Node.
 - Tools panels.
 - Choose type of edge (should we allow add arbitrary ones or depending on the target?)
 - Don´t allow delete the start and end nodes.

@@ -11,5 +11,13 @@ export default {
   },
   'node-adapter': {
     size: { width: 165, height: 55 }
+  },
+  node_success: {
+    size: { width: 130, height: 43 },
+    visibleConnectorTypes: VisibleConnectorTypes.INPUT_ONLY
+  },
+  node_fail: {
+    size: { width: 130, height: 43 },
+    visibleConnectorTypes: VisibleConnectorTypes.INPUT_ONLY
   }
 }

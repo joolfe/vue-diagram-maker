@@ -5,17 +5,17 @@
       </div>
       <div class="dm-node-text">
         <div class="text-head">{{ adapter_id }}</div>
-        <div class="text-little">{{ adapter_name }}</div>
+        <div v-if="adapter_name != null" class="text-little">{{ adapter_name }}</div>
       </div>
     </div>
 </template>
 
 <script>
 export default {
-  props: ['adapter_id', 'adapter_name'],
+  props: ['adapter_id', 'adapter_name', 'icon_class'],
   data () {
     return {
-      icon: 'el-icon-help'
+      icon: (this.icon_class != null) ? this.icon_class : 'el-icon-help'
     }
   },
   computed: {}
@@ -24,20 +24,20 @@ export default {
 
 <style>
 .dm-node-wrap {
-  padding: 10px;
+  padding: 10px 15px;
 }
 
 .dm-node-icon {
     display: inline-block;
     vertical-align:middle;
     font-size: 24px;
-    color: #abb5c5;
+    color: #f77f80;
 }
 
 .dm-node-text {
     display: inline-block;
     vertical-align:middle;
-    margin-left: 10px;
+    margin-left: 7px;
 }
 
 .text-head {
