@@ -8,8 +8,8 @@
 import InnerNode from './InnerNode.vue'
 
 const ICONS = {
-  node_success: 'el-icon-circle-check',
-  node_fail: 'el-icon-circle-close'
+  node_success: 'el-icon-success',
+  node_fail: 'el-icon-error'
 }
 
 export default {
@@ -39,13 +39,12 @@ export default {
   padding: 6px 15px;
 }
 .node-adapter.node-end.node_success .dm-node-icon {
-  color: #63ba69;
+  color: #67C23A;
 }
 .node-adapter.node-end.node_fail .dm-node-icon {
-  color: #303133;
+  color: #E6A23C;
 }
 .node-adapter.node-end .text-head {
-  font-weight: 500;
-  color: #82848a;
+  padding-bottom: 2px;
 }
 </style>

@@ -29,7 +29,9 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## TODO
-- Success and fail node should be center vertically better please and maybe a little font size.
+- Start node create, icon color and shape?
+- Test change edges to our red.
+- Try to put a border that has better contrast.
 - try a simple verison for the logo, just logo and options after that.
 - Potential node should have the same properties as the one get from panel.
 - Edges badged should have border be in the middle.

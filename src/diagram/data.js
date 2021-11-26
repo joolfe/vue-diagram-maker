@@ -1,10 +1,22 @@
 export default {
   nodes: {
-    start: {
-      id: 'start',
-      typeId: 'node-start',
+    START: {
+      id: 'START',
+      typeId: 'node_start',
       diagramMakerData: {
         position: { x: 100, y: 100 },
+        size: { width: 130, height: 55 }
+      },
+      consumerData: {
+        adapter_id: 'START',
+        adapter_name: null
+      }
+    },
+    OTP: {
+      id: 'OTP',
+      typeId: 'node_adapter',
+      diagramMakerData: {
+        position: { x: 400, y: 100 },
         size: { width: 165, height: 55 }
       },
       consumerData: {
@@ -16,7 +28,7 @@ export default {
       id: 'SUCCESS',
       typeId: 'node_success',
       diagramMakerData: {
-        position: { x: 400, y: 107 },
+        position: { x: 700, y: 107 },
         size: { width: 130, height: 43 }
       },
       consumerData: {
@@ -28,7 +40,7 @@ export default {
       id: 'FAIL',
       typeId: 'node_fail',
       diagramMakerData: {
-        position: { x: 400, y: 170 },
+        position: { x: 700, y: 170 },
         size: { width: 130, height: 43 }
       },
       consumerData: {
@@ -40,8 +52,14 @@ export default {
   edges: {
     edge1: {
       id: 'edge1',
-      src: 'start',
+      src: 'OTP',
       dest: 'SUCCESS',
+      diagramMakerData: { }
+    },
+    edge2: {
+      id: 'edge2',
+      src: 'START',
+      dest: 'OTP',
       diagramMakerData: { }
     }
   }
